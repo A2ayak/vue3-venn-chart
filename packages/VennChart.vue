@@ -9,7 +9,7 @@ import { ref, onMounted, watch, getCurrentInstance, onUnmounted } from 'vue'
 /* 此处误报 模块“"d3"”没有导出的成员“select”，没有在d3.node.js里显式导出，实际是有的 */
 // @ts-ignore
 import { select, event } from 'd3'
-import { VennDiagram, sortAreas } from '@upsetjs/venn.js'
+import { VennDiagram } from '@upsetjs/venn.js'
 import { ISetsItem } from './types'
 import { debounce } from 'lodash-es'
 
@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<IVennChartProps>(), {
 	tooltipOffsetX: 20,
 	tooltipOffsetY: 10,
 	tooltipOpacity: 0.9,
-	tooltipDelay: 500,
+	tooltipDelay: 300,
 	textColor: '#fff'
 })
 
@@ -61,10 +61,19 @@ watch(
 const curColor = ref('')
 const wrapperDom = ref<HTMLElement>()
 function renderVennChart() {
+	// 确保存在容器
 	if (!wrapperDom.value) {
-		console.warn('请检查是否存在图表容器dom节点')
+		console.warn('请检查是否存在图表容器dom节点,并设置好宽高')
 		return
 	}
+	// 渲染前清除所有tooltip节点
+	const tooltipDom = document.getElementsByClassName(
+		'custom-venn-chart-tooltip'
+	)
+	for (const dom of tooltipDom) {
+		dom.remove()
+	}
+
 	chartWidth.value = wrapperDom.value!.getBoundingClientRect().width
 	chartHeight.value = wrapperDom.value!.getBoundingClientRect().height
 
@@ -98,7 +107,6 @@ function renderVennChart() {
 	vennDiv
 		.selectAll('g')
 		.on('mouseover', function (d: any, i: number) {
-			sortAreas(vennDiv, d)
 			curColor.value = props.colors[i]
 			tooltip
 				.transition()
