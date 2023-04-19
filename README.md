@@ -38,8 +38,8 @@ npm install vue3-venn-chart
 import VennChart from 'vue3-venn-chart'
 const chartData = [
   { sets: ['A'], label: '12', size: 12 },
-	{ sets: ['B'], label: '8', size: 8 },
-	{ sets: ['A', 'B'], label: '4', size: 4 }
+  { sets: ['B'], label: '8', size: 8 },
+  { sets: ['A', 'B'], label: '4', size: 4 }
 ]
 </script>
 
