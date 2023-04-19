@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [vue(), VueSetupExtend()],
+	plugins: [vue(), VueSetupExtend(), cssInjectedByJsPlugin()],
 	build: {
 		outDir: 'lib',
 		lib: {
