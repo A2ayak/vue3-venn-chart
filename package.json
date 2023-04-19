@@ -15,7 +15,7 @@
 	],
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --port 4090",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
