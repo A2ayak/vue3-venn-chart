@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VennChart from '../packages/VennChart.vue'
+import VennChart from '../packages'
 </script>
 
 <template>

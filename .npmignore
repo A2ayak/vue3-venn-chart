@@ -29,3 +29,7 @@ public/
 vite.config.js
 *.map
 *.html
+global.d.ts
+tsconfig.node.json
+tsconfig.json
+vite.config.ts
