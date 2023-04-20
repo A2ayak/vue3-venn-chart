@@ -1,6 +1,6 @@
 # vue3-venn-chart
 
-venn chart based on vue3
+Venn chart component based on Vue3.2
 ## Table of Contents
 
 - [vue3-venn-chart](#vue3-venn-chart)
