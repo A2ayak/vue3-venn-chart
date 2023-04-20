@@ -54,23 +54,23 @@ const legend = ['left(左边)', 'right(右边)', 'common(同时存在)']
 </style>
 ```
 
-| props | Descriptions| isRequired(是否必填)| type(类型) | default(默认值)|
+| props | Descriptions| isRequired| type（类型） | default（默认值）|
 | ----- | ----------- | ------------------- | ---------- |--------------- |
-| data | venn chart data (维恩图数据源) | true(必填) | Array<{sets: string[],label: string,size: number}> | -
-| colors | chart color options(图表颜色选项).**The array length is better to be the same as props.data** | true(必填) | string[] | example: ['#ee4035', '#0392cf', '#7bc043']
-| legend | legend(图例).**The array length must be the same as props.data** | true(必填) | string[] | example: ['left', 'right', 'common']
-| strokeWidth | borderWidth when hovered(鼠标悬停时的边框粗细) | false(选填) | number | 3
-| strokeColor | borderColor when hovered(鼠标悬停时的边框颜色) | false(选填) | string | '#f6cd61'
-| tooltipOffsetX | tooltip offset in X axis(tooltip在X轴的偏移量) | false(选填) | number | 20
-| tooltipOffsetY | tooltip offset in Y axis(tooltip在Y轴的偏移量) | false(选填) | number | 10
-| tooltipOpacity | tooltip background color opacity(tooltip背景透明度) | false(选填) | number | 0.9
-| tooltipDelay | tooltip animation time(tooltip显示/消失持续时间) | false(选填) | number | 0.9
-| textColor | chart text color(图表文字颜色) | false(选填) | string | '#fff'
+| data | venn chart data （维恩图数据源） | true（必填） | Array<{sets: string[],label: string,size: number}> | -
+| colors | chart color options（图表颜色选项）.**The array length is better to be the same as props.data** | true（必填） | string[] | example: ['#ee4035', '#0392cf', '#7bc043']
+| legend | legend（图例）.**The array length must be the same as props.data** | true（必填） | string[] | example: ['left', 'right', 'common']
+| strokeWidth | borderWidth when hovered（鼠标悬停时的边框粗细） | false（选填） | number | 3
+| strokeColor | borderColor when hovered（鼠标悬停时的边框颜色） | false（选填） | string | '#f6cd61'
+| tooltipOffsetX | tooltip offset in X axis（tooltip在X轴的偏移量） | false（选填） | number | 20
+| tooltipOffsetY | tooltip offset in Y axis（tooltip在Y轴的偏移量） | false（选填） | number | 10
+| tooltipOpacity | tooltip background color opacity（tooltip背景透明度） | false（选填） | number | 0.9
+| tooltipDelay | tooltip animation time（tooltip显示/消失持续时间） | false（选填） | number | 0.9
+| textColor | chart text color（图表文字颜色） | false（选填） | string | '#fff'
 
 
 ## Maintainers
 
-[@A2ayak](https://github.com/A2ayak)
+[@A2ayak](https://github.com/A2ayak)  :email: :point_right: **azayakey@gmail.com** for further support
 
 
 ## License
