@@ -30,17 +30,19 @@ npm install vue3-venn-chart
 // make sure the "chart-container" has the width & height(px or %)
 // "chart-container"容器必须拥有宽高，支持百分比
 <div class="chart-container">
-  <VennChart :data="chartData" />
+  <VennChart :data="chartData" :colors="colors" :legend="legend" />
 </div>
 
 // script setup
 <script setup lang="ts">
 import VennChart from 'vue3-venn-chart'
-const chartData = [
+const chartData = ref([
   { sets: ['A'], label: '12', size: 12 },
   { sets: ['B'], label: '8', size: 8 },
   { sets: ['A', 'B'], label: '4', size: 4 }
-]
+])
+const colors = ['#ee4035', '#0392cf', '#7bc043']
+const legend = ['left(左边)', 'right(右边)', 'common(同时存在)']
 </script>
 
 // css
