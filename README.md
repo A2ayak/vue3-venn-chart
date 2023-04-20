@@ -70,7 +70,7 @@ const legend = ['left(左边)', 'right(右边)', 'common(同时存在)']
 
 ## Maintainers
 
-[@A2ayak](https://github.com/A2ayak).
+[@A2ayak](https://github.com/A2ayak)
 
 
 ## License
