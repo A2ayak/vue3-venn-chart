@@ -5,7 +5,14 @@
 </template>
 
 <script lang="ts" setup name="VennChart">
-import { ref, onMounted, watch, getCurrentInstance, onUnmounted } from 'vue'
+import {
+	ref,
+	onMounted,
+	watch,
+	getCurrentInstance,
+	onUnmounted,
+	computed
+} from 'vue'
 /* 此处误报 模块“"d3"”没有导出的成员“select”，没有在d3.node.js里显式导出，实际是有的 */
 // @ts-ignore
 import { select, event } from 'd3'
@@ -15,6 +22,28 @@ import { debounce } from 'lodash-es'
 
 const chartWidth = ref(0)
 const chartHeight = ref(0)
+const presetNiceColors = [
+	'#96ceb4',
+	'#ffeead',
+	'#ff6f69',
+	'#ffcc5c',
+	'#88d8b0',
+	'#ee4035',
+	'#f37736',
+	'#fdf498',
+	'#7bc043',
+	'#0392cf'
+]
+const chartColors = computed({
+	get() {
+		return props.colors.length < props.data.length
+			? [...props.colors, ...presetNiceColors]
+			: props.colors
+	},
+	set(colors: string[]) {
+		chartColors.value = colors
+	}
+})
 
 interface IVennChartProps {
 	data: ISetsItem[]
@@ -34,15 +63,11 @@ interface Emit {
 
 const emits = defineEmits<Emit>()
 const props = withDefaults(defineProps<IVennChartProps>(), {
-	data: () => [
-		{ sets: ['A'], label: '12', size: 12 },
-		{ sets: ['B'], label: '8', size: 8 },
-		{ sets: ['A', 'B'], label: '4', size: 4 }
-	],
+	data: () => [],
+	colors: () => [],
+	legend: () => [],
 	strokeWidth: 3,
 	strokeColor: '#f6cd61',
-	colors: () => ['#ee4035', '#0392cf', '#7bc043'],
-	legend: () => ['左边', '右边', '同时存在'],
 	tooltipOffsetX: 20,
 	tooltipOffsetY: 10,
 	tooltipOpacity: 0.9,
@@ -90,7 +115,7 @@ function renderVennChart() {
 	vennDiv
 		.selectAll('g path')
 		.style('fill', function (d: any, i: number) {
-			return props.colors[i]
+			return chartColors.value[i]
 		})
 		.style('fill-opacity', 0.7)
 		.style('stroke-opacity', 0)
@@ -107,7 +132,7 @@ function renderVennChart() {
 	vennDiv
 		.selectAll('g')
 		.on('mouseover', function (d: any, i: number) {
-			curColor.value = props.colors[i]
+			curColor.value = chartColors.value[i]
 			tooltip
 				.transition()
 				.duration(props.tooltipDelay)
@@ -123,7 +148,7 @@ function renderVennChart() {
 				.select('path')
 				.style('stroke-opacity', 1)
 				.style('fill-opacity', 1)
-				.style('fill', props.colors[i])
+				.style('fill', chartColors.value[i])
 		})
 		.on('mousemove', function (d: any, i: number) {
 			tooltip
@@ -142,7 +167,7 @@ function renderVennChart() {
 				.select('path')
 				.style('stroke-opacity', 0)
 				.style('fill-opacity', 0.7)
-				.style('fill', props.colors[i])
+				.style('fill', chartColors.value[i])
 		})
 		.on('mousedown', function (e: ISetsItem) {
 			emits('clickItem', e)
