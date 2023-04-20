@@ -2,6 +2,7 @@
 	"name": "vue3-venn-chart",
 	"private": false,
 	"version": "1.0.3",
+	"license": "MIT",
 	"description": "venn chart for Vue3",
 	"author": "Azayak",
 	"keywords": [
