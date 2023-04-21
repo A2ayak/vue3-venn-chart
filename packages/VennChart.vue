@@ -20,6 +20,19 @@ import { VennDiagram } from '@upsetjs/venn.js'
 import { ISetsItem } from './types'
 import { debounce } from 'lodash-es'
 
+interface IVennChartProps {
+	data: ISetsItem[]
+	colors: string[]
+	legend: string[]
+	strokeWidth?: number
+	strokeColor?: string
+	tooltipOffsetX?: string | number
+	tooltipOffsetY?: string | number
+	tooltipOpacity?: number
+	tooltipDelay?: number
+	textColor?: string
+}
+
 const chartWidth = ref(0)
 const chartHeight = ref(0)
 const presetNiceColors = [
@@ -45,18 +58,6 @@ const chartColors = computed({
 	}
 })
 
-interface IVennChartProps {
-	data: ISetsItem[]
-	strokeWidth?: number
-	strokeColor?: string
-	colors?: string[]
-	legend?: string[]
-	tooltipOffsetX?: string | number
-	tooltipOffsetY?: string | number
-	tooltipOpacity?: number
-	tooltipDelay?: number
-	textColor?: string
-}
 interface Emit {
 	(e: 'clickItem', event: any): void
 }

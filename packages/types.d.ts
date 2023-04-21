@@ -6,10 +6,13 @@ export interface ISetsItem {
 
 export interface IVennChartProps {
 	data: ISetsItem[]
-	w?: number
-	h?: number
+	colors: string[]
+	legend: string[]
 	strokeWidth?: number
 	strokeColor?: string
-	colors?: string[]
-	legend?: string[]
+	tooltipOffsetX?: string | number
+	tooltipOffsetY?: string | number
+	tooltipOpacity?: number
+	tooltipDelay?: number
+	textColor?: string
 }
