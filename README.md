@@ -1,6 +1,7 @@
 # vue3-venn-chart
 
 Venn chart component for Vue3.2 which is based on @upsetjs/venn.js & d3.js
+![vue3-venn-chart-demo.png](https://github.com/A2ayak/vue3-venn-chart/blob/main/example/assets/venn-chart-demo.png)
 ## Table of Contents
 
 - [vue3-venn-chart](#vue3-venn-chart)
