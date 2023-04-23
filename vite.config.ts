@@ -7,28 +7,28 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [
-		vue(),
-		VueSetupExtend(),
-		cssInjectedByJsPlugin(),
-		dts({
-			outputDir: './lib/types'
-		})
-	],
-	build: {
-		outDir: 'lib',
-		lib: {
-			entry: resolve(__dirname, 'packages/index.ts'),
-			name: 'vue3VennChart',
-			fileName: 'vue3-venn-chart'
-		},
-		rollupOptions: {
-			external: ['vue'],
-			output: {
-				globals: {
-					vue: 'Vue'
-				}
-			}
-		}
-	}
+  plugins: [
+    vue(),
+    VueSetupExtend(),
+    cssInjectedByJsPlugin(),
+    dts({
+      outputDir: './lib/types'
+    })
+  ],
+  build: {
+    outDir: 'lib',
+    lib: {
+      entry: resolve(__dirname, 'packages/index.ts'),
+      name: 'vue3VennChart',
+      fileName: 'vue3-venn-chart'
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue'
+        }
+      }
+    }
+  }
 })
