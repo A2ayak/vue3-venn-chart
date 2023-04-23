@@ -1,6 +1,6 @@
 # vue3-venn-chart
 
-Venn chart component based on Vue3.2
+Venn chart component for Vue3.2 which is based on @upsetjs/venn.js & d3.js
 ## Table of Contents
 
 - [vue3-venn-chart](#vue3-venn-chart)
