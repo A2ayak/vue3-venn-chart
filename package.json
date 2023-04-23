@@ -12,7 +12,8 @@
 		"vue3-venn-chart",
 		"vue3",
 		"venn.js",
-		"d3.js"
+		"d3.js",
+		"@upsetjs/venn.js"
 	],
 	"type": "module",
 	"scripts": {
