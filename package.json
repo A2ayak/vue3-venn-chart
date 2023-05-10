@@ -1,7 +1,7 @@
 {
   "name": "vue3-venn-chart",
   "private": false,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "description": "venn chart for Vue3",
   "author": "A2ayak",
@@ -38,13 +38,13 @@
     }
   },
   "dependencies": {
-    "@types/lodash-es": "^4.17.7",
     "@upsetjs/venn.js": "^1.4.2",
     "d3": "^5.9.7",
     "lodash-es": "^4.17.21",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.7",
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.1.0",
     "less": "^4.1.3",
